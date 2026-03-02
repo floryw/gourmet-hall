@@ -1,5 +1,5 @@
 """
-URL configuration for main project.
+URL configuration for first project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -16,12 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import index, logout_view
+from app.views import index, logout_view, admin_view, usercab, register
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('logout/', logout_view, name='logout'),
-    path("login/", auth_views.LoginView.as_view(template_name="login.html"), name='login'),
+    path('adminpanel/', admin_view, name='admin_view'),
+    path('lk/', usercab, name='usercab'),
+    path('register/', register, name='register'),
+    path("accounts/login/", auth_views.LoginView.as_view(template_name="login.html"), name='login'),
 ]
+
+

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<h1 class="h3 mb-3 fw-normal">Регистрация</h1>
+
+
+
+<form method="post" action="{% url 'register' %}" class="mx-auto p-2" style="width: 800px;"> 
+    {% csrf_token %}
+
+
+
+    {{ form }}
+
+
+
+
+
+<button class="btn btn-primary w-100 py-2" type="submit" value="register">Регистрация</button>
+
+</form>
+
+
+{% endblock %}
